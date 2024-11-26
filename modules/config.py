@@ -28,12 +28,12 @@ config_dict = {}
 always_save_keys = []
 visited_keys = []
 
-try:
-    with open(os.path.abspath(f'./presets/js2prony.json'), "r", encoding="utf-8") as json_file:
-        config_dict.update(json.load(json_file))
-except Exception as e:
-    print(f'Load default preset failed.')
-    print(e)
+# try:
+#     with open(os.path.abspath(f'./presets/js2prony.json'), "r", encoding="utf-8") as json_file:
+#         config_dict.update(json.load(json_file))
+# except Exception as e:
+#     print(f'Load default preset failed.')
+#     print(e)
 
 try:
     if os.path.exists(config_path):
