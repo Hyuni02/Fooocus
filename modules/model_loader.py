@@ -16,7 +16,6 @@ def load_file_from_url(
     """
     domain = os.environ.get("HF_MIRROR", "https://huggingface.co").rstrip('/')
     url = str.replace(url, "https://huggingface.co", domain, 1)
-    print(url)
     os.makedirs(model_dir, exist_ok=True)
     if not file_name:
         parts = urlparse(url)
@@ -25,5 +24,10 @@ def load_file_from_url(
     if not os.path.exists(cached_file):
         print(f'Downloading: "{url}" to {cached_file}\n')
         from torch.hub import download_url_to_file
-        download_url_to_file(url, cached_file, progress=progress)
+        if 'civitai' in url:
+            import civitai
+            model_id = url.split('/')[-1]
+            civitai.CivitaiDownloader.download_model(model_id, cached_file)
+        else:
+            download_url_to_file(url, cached_file, progress=progress)
     return cached_file

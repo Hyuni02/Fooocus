@@ -1,15 +1,16 @@
 import requests
+from urllib.request import urlopen, Request
 import os
 import re
 import APILoader
+from typing import Optional
 
 
-def download_model(model_id, save_path):
+def download_model(model_id: int, dst: str, hash_prefix: Optional[str] = None, progress: bool = True) -> None:
+    file_size = None
     url = f"https://api.civitai.com/v1/models/{model_id}"
 
-    headers = {
-        "Authorization": f"Bearer {APILoader.api}"
-    }
+    headers = {"Authorization": f"Bearer {APILoader.api}"}
 
     try:
         # 모델 정보 요청
@@ -17,9 +18,6 @@ def download_model(model_id, save_path):
         response.raise_for_status()
 
         model_data = response.json()
-        if "modelVersions" not in model_data or not model_data["modelVersions"]:
-            print("모델 버전 정보를 찾을 수 없습니다.")
-            return
 
         # 첫 번째 버전의 다운로드 URL 가져오기
         file_info = model_data["modelVersions"][0]["files"][0]
@@ -33,9 +31,9 @@ def download_model(model_id, save_path):
         file_name = re.sub(r'[<>:"/\\|?*\n]', '_', file_name)
 
         # 저장 경로 설정 (절대 경로)
-        save_path = os.path.abspath(save_path)
-        os.makedirs(save_path, exist_ok=True)  # 디렉토리 생성
-        save_file_path = os.path.join(save_path, file_name)
+        dst = os.path.abspath(dst)
+        os.makedirs(dst, exist_ok=True)  # 디렉토리 생성
+        save_file_path = os.path.join(dst, file_name)
 
         # 모델 파일 다운로드
         file_response = requests.get(download_url, headers=headers, stream=True)
