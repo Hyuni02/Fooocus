@@ -2,7 +2,7 @@ import requests
 import os
 import re
 import sys
-import APILoader
+from civitai import APILoader
 
 # 프로젝트의 루트 경로를 추가
 root_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
