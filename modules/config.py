@@ -29,7 +29,7 @@ always_save_keys = []
 visited_keys = []
 
 try:
-    with open(os.path.abspath(f'./presets/ntrmix.json'), "r", encoding="utf-8") as json_file:
+    with open(os.path.abspath(f'./presets/pony_v6.json'), "r", encoding="utf-8") as json_file:
         config_dict.update(json.load(json_file))
 except Exception as e:
     print(f'Load default preset failed.')
