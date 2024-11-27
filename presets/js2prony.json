@@ -40,7 +40,7 @@
     "default_aspect_ratio": "896*1152",
     "default_overwrite_step": -1,
     "checkpoint_downloads": {
-        "js2prony.safetensors": "https://civitai.com/api/download/models/315675?type=Model&format=SafeTensor&size=full&fp=fp16"
+        "js2prony.safetensors": "https://civitai.com/api/download/models/315675"
     },
     "embeddings_downloads": {},
     "lora_downloads": {
