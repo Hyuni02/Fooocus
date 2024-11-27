@@ -1,12 +1,15 @@
 import requests
-from urllib.request import urlopen, Request
 import os
 import re
+import sys
 import APILoader
-from typing import Optional
+
+# 프로젝트의 루트 경로를 추가
+root_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(root_path)
 
 
-def download_model(model_id: int, dst: str, hash_prefix: Optional[str] = None, progress: bool = True) -> None:
+def download_model(model_id: int, dst: str) -> None:
     file_size = None
     url = f"https://api.civitai.com/v1/models/{model_id}"
 
