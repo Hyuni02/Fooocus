@@ -4,4 +4,5 @@ def load_api_key(file_name):
         return file.read()
 
 print(os.path.abspath(__file__))
+print(os.path.exists('/content/Fooocus/civitai/api-key.txt'))
 api = load_api_key('./api-key.txt')
