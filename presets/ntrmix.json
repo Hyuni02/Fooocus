@@ -1,5 +1,5 @@
 {
-    "default_model": "js2prony.safetensors",
+    "default_model": "NTRMix.safetensors",
     "default_refiner": "None",
     "default_refiner_switch": 0.5,
     "default_loras": [
@@ -40,7 +40,7 @@
     "default_aspect_ratio": "896*1152",
     "default_overwrite_step": -1,
     "checkpoint_downloads": {
-        "js2prony.safetensors": "https://civitai.com/api/download/models/315675"
+        "NTRMix.safetensors": "https://civitai.com/api/download/models/926443"
     },
     "embeddings_downloads": {},
     "lora_downloads": {
