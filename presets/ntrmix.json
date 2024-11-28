@@ -1,5 +1,5 @@
 {
-    "default_model": "NTRMix.safetensors",
+    "default_model": "ntrMixIllustriousXL_v40.safetensors",
     "default_refiner": "None",
     "default_refiner_switch": 0.5,
     "default_loras": [
@@ -40,7 +40,7 @@
     "default_aspect_ratio": "896*1152",
     "default_overwrite_step": -1,
     "checkpoint_downloads": {
-        "NTRMix.safetensors": "https://civitai.com/api/download/models/926443"
+        "ntrMixIllustriousXL_v40.safetensors": "https://civitai.com/api/download/models/926443"
     },
     "embeddings_downloads": {},
     "lora_downloads": {
