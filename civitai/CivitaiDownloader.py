@@ -36,7 +36,6 @@ def download_model(model_id: int, dst: str) -> None:
         # 저장 경로 설정 (절대 경로)
         dst = os.path.abspath(dst)
         print('dst :', dst)
-        os.makedirs(dst, exist_ok=True)  # 디렉토리 생성
         save_file_path = dst
         print('save_file_path :', save_file_path)
 
